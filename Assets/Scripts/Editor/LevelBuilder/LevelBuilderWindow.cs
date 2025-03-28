@@ -158,7 +158,7 @@ public class LevelBuilderWindow : EditorWindow
     {
         if (prefab == null)
         {
-            Debug.LogWarning("Prefab not assigned!");
+            Debug.LogError("Prefab not assigned! Please assign a prefab in the Level Builder window.");
             return;
         }
 
@@ -175,22 +175,29 @@ public class LevelBuilderWindow : EditorWindow
                 platform.movementType = "Horizontal";
                 platform.speed = 2f;
                 platform.waitTime = 1f;
+                Debug.Log($"Created {(platform.isMoving ? "moving" : "static")} platform at {obj.transform.position}");
             }
             else if (prefab == woodenWallPrefab || prefab == destructiblePrefab)
             {
                 var obstacle = obj.AddComponent<ObstacleComponent>();
                 obstacle.obstacleType = prefab == destructiblePrefab ? "Destructible" : "WoodenWall";
                 obstacle.isDestructible = prefab == destructiblePrefab;
+                Debug.Log($"Created {obstacle.obstacleType} at {obj.transform.position}");
             }
             else if (prefab == coinPrefab || prefab == powerUpPrefab)
             {
                 var collectible = obj.AddComponent<CollectibleComponent>();
                 collectible.collectibleType = prefab == coinPrefab ? "Coin" : "PowerUp";
                 collectible.value = prefab == coinPrefab ? 1f : 10f;
+                Debug.Log($"Created {collectible.collectibleType} at {obj.transform.position}");
             }
 
             levelObjects.Add(obj);
             Selection.activeObject = obj;
+        }
+        else
+        {
+            Debug.LogError($"Failed to instantiate prefab: {prefab.name}");
         }
     }
 
@@ -358,5 +365,22 @@ public class LevelBuilderWindow : EditorWindow
             }
         }
         levelObjects.Clear();
+    }
+
+    private void OnEnable()
+    {
+        // Try to find prefabs in the project
+        if (staticPlatformPrefab == null)
+            staticPlatformPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/StaticPlatform.prefab");
+        if (movingPlatformPrefab == null)
+            movingPlatformPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/MovingPlatform.prefab");
+        if (woodenWallPrefab == null)
+            woodenWallPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/WoodenWall.prefab");
+        if (destructiblePrefab == null)
+            destructiblePrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Destructible.prefab");
+        if (coinPrefab == null)
+            coinPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Coin.prefab");
+        if (powerUpPrefab == null)
+            powerUpPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/PowerUp.prefab");
     }
 } 

@@ -1,22 +1,9 @@
 using UnityEngine;
-using System;
-
-/// <summary>
-/// Data structure for level configuration
-/// </summary>
-[Serializable]
-public class LevelData
-{
-    public string levelName;
-    public Vector2 startPoint;
-    public Vector2 endPoint;
-    public LevelObject[] objects;
-}
 
 /// <summary>
 /// Base class for all level objects
 /// </summary>
-[Serializable]
+[System.Serializable]
 public class LevelObject
 {
     public string type;
@@ -28,20 +15,20 @@ public class LevelObject
 /// <summary>
 /// Platform data for level serialization
 /// </summary>
-[Serializable]
+[System.Serializable]
 public class PlatformData : LevelObject
 {
     public bool isMoving;
     public bool isDestructible;
     public float speed;
     public float waitTime;
-    public Vector2[] waypoints;
+    public string movementType;
 }
 
 /// <summary>
 /// Collectible data for level serialization
 /// </summary>
-[Serializable]
+[System.Serializable]
 public class CollectibleData : LevelObject
 {
     public string collectibleType;
@@ -51,11 +38,23 @@ public class CollectibleData : LevelObject
 /// <summary>
 /// Obstacle data for level serialization
 /// </summary>
-[Serializable]
+[System.Serializable]
 public class ObstacleData : LevelObject
 {
     public string obstacleType;
     public float damage;
     public bool isDestructible;
     public float health;
+}
+
+/// <summary>
+/// Data structure for level configuration
+/// </summary>
+[System.Serializable]
+public class LevelData
+{
+    public string levelName;
+    public Vector2 startPoint;
+    public Vector2 endPoint;
+    public LevelObject[] objects;
 } 
