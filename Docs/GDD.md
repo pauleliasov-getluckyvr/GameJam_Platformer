@@ -8,6 +8,8 @@
 5. [Environment](#environment)
 6. [Level Design](#level-design)
 7. [Technical Specifications](#technical-specifications)
+8. [Architecture & Design Principles](#architecture--design-principles)
+9. [Display & Camera](#display--camera)
 
 ## Game Overview
 
@@ -129,6 +131,10 @@ A 2D platformer featuring a character with unique weapon mechanics, focusing on 
 - Visual object placement
 - Property adjustment interface
 - Level save/load system
+- **Architectural Independence**
+  - No runtime game logic dependencies
+  - Clean interface for data exchange
+  - Independent validation system
 
 #### Editable Elements
 - Platform placement and properties
@@ -216,3 +222,102 @@ A 2D platformer featuring a character with unique weapon mechanics, focusing on 
 2. Simple sound effects
 3. Basic particle effects
 4. Essential bug fixes 
+
+## Architecture & Design Principles
+
+### Core Architecture Guidelines
+- Strictly follow SOLID principles throughout the entire codebase
+- Implement modular design with clear separation of concerns
+- Use dependency injection for better testability and maintenance
+- Follow the Interface Segregation Principle for component interactions
+- Implement proper abstraction layers between systems
+
+### Modularity Requirements
+- Core game systems must be independent and interchangeable
+- Systems should communicate through well-defined interfaces
+- Implement event-driven architecture for loose coupling
+- Use ScriptableObjects for configuration and data management
+- Create clear boundaries between different game systems
+
+### Level Builder Architecture
+- **Strict Isolation Requirements**
+  - Level Builder must be completely isolated from core game logic
+  - No direct dependencies between Level Builder and game systems
+  - Implement separate assembly definition for Level Builder
+  - Use data contracts (interfaces) for communication
+  - Level Builder should only know about data models, not game logic
+
+### System Independence
+1. **Core Game Systems**
+   - Character system
+   - Weapon system
+   - Physics and collision
+   - Game state management
+   - Input handling
+   
+2. **Level Builder System**
+   - Editor UI and controls
+   - Level data management
+   - Object placement system
+   - Property editors
+   - Level validation
+   
+3. **Shared Components**
+   - Data models and interfaces
+   - Level serialization contracts
+   - Common utilities
+   - Asset references
+
+### Best Practices Implementation
+- Use proper namespacing for different modules
+- Implement clean architecture layers:
+  - Presentation Layer (UI, Input)
+  - Domain Layer (Game Logic)
+  - Data Layer (Persistence, Configuration)
+- Follow Unity's component-based architecture
+- Use composition over inheritance
+- Implement proper error handling and logging
+
+### Testing Architecture
+- Support unit testing through proper dependency injection
+- Create mock implementations for interfaces
+- Separate editor and runtime logic
+- Implement test automation framework
+- Support integration testing between modules 
+
+## Display & Camera
+
+### Resolution Specifications
+- Target Resolution: 1920x1080 (Full HD)
+- Orientation: Landscape
+- Aspect Ratio: 16:9
+- Support for common 16:9 resolutions:
+  - 1920x1080 (Full HD)
+  - 1600x900
+  - 1366x768
+
+### Camera Requirements
+- Fixed camera bounds for each level
+- Level design must fit within camera viewport
+- No camera movement/scrolling
+- All gameplay elements must remain within visible bounds
+- Clear view of:
+  - Character
+  - Platforms
+  - Projectiles
+  - Collectibles
+  - Start/End points
+
+### Level Boundary Guidelines
+- All platforms must be fully visible
+- Ensure sufficient space for projectile trajectories
+- Account for UI elements in layout
+- Maintain safe zones for essential gameplay elements
+- Consider weapon rotation radius in level bounds
+
+### Visual Considerations
+- Clear visibility of all interactive elements
+- Proper contrast between foreground and background
+- Adequate space for particle effects
+- UI elements positioned within safe zones
+- Consistent scale of game objects 

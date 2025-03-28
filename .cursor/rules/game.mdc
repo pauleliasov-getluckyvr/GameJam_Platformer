@@ -1,0 +1,182 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 2D Platformer Game Development Rules
+
+## Documentation Requirements
+- Always update GDD when implementing new features or changes
+- Document all changes in the GDD immediately after implementation
+- Keep GDD synchronized with actual implementation
+- Add new mechanics to GDD before implementation
+- Update technical specifications in GDD when architecture changes
+
+## Architecture Rules
+- Follow SOLID principles strictly
+- Maintain modular design with clear separation of concerns
+- Use dependency injection
+- Keep Level Builder completely isolated from core game logic
+- Implement proper abstraction layers between systems
+
+## System Organization
+1. **Core Game Systems (Runtime)**
+   - Keep systems independent and interchangeable
+   - Use interfaces for system communication
+   - Implement event-driven architecture
+   - Use ScriptableObjects for configuration
+
+2. **Level Builder (Editor)**
+   - Must be in separate assembly definition
+   - No direct dependencies on game systems
+   - Use data contracts (interfaces) only
+   - Access only data models, not game logic
+
+3. **Shared Components**
+   - Keep shared code minimal
+   - Use interfaces for contracts
+   - Maintain clear boundaries
+   - Document all shared dependencies
+
+## Code Structure
+- One script per file
+- Group related components
+- Use proper namespacing
+- Follow clean architecture layers:
+  - Presentation (UI/Input)
+  - Domain (Game Logic)
+  - Data (Persistence)
+
+## Implementation Guidelines
+
+### Character System
+- Implement state machine for character states
+- Cache component references
+- Use events for state changes
+- Keep movement logic separate from other behaviors
+
+### Weapon System
+- Use strategy pattern for different weapons
+- Implement object pooling for projectiles
+- Keep weapon logic independent of character
+- Use interfaces for weapon switching
+
+### Platform System
+- Separate static and moving platform logic
+- Use ScriptableObjects for platform configurations
+- Implement proper cleanup
+- Use physics efficiently
+
+### Level System
+- Keep level data serializable
+- Implement proper validation
+- Use proper error handling
+- Maintain separation from editor logic
+
+## Best Practices
+
+### Performance
+- Use object pooling for frequent instantiation
+- Optimize physics calculations
+- Cache component references
+- Minimize GetComponent calls
+- Profile code regularly
+
+### Testing
+- Write unit tests for all systems
+- Create mock implementations
+- Test system integration
+- Validate level data
+- Test edge cases
+
+### Version Control
+- Make atomic commits
+- Write meaningful commit messages
+- Keep editor and runtime changes separate
+- Document breaking changes
+
+## Naming Conventions
+- PascalCase for:
+  - Class names
+  - Method names
+  - Properties
+  - Interfaces (prefix with 'I')
+- camelCase for:
+  - Variables
+  - Parameters
+- _camelCase for private fields
+
+## File Organization
+```
+Assets/
+├── Scripts/
+│   ├── Core/
+│   ├── Weapons/
+│   ├── Platforms/
+│   ├── Character/
+│   └── UI/
+├── Editor/
+│   └── LevelBuilder/
+├── ScriptableObjects/
+├── Prefabs/
+├── Scenes/
+└── Resources/
+```
+
+## Error Handling
+- Use specific exception types
+- Implement proper logging
+- Handle edge cases
+- Validate input data
+- Document error states
+
+## UI Guidelines
+- Keep UI logic separate
+- Use event system
+- Implement proper scaling
+- Follow Unity UI best practices
+- Design for 1920x1080 (Full HD)
+- Support 16:9 aspect ratio
+- Maintain safe zones for UI elements
+
+## Level Design Rules
+- Design levels within fixed camera bounds
+- Ensure all gameplay elements are visible
+- Account for weapon rotation radius
+- Consider projectile trajectories
+- Maintain proper object scaling
+- Follow safe zone guidelines
+
+## Camera Guidelines
+- Implement fixed camera boundaries
+- Set proper orthographic size
+- Configure pixel-perfect settings
+- Handle resolution scaling properly
+- Maintain consistent aspect ratio
+
+## Resolution Management
+- Target resolution: 1920x1080
+- Landscape orientation only
+- Support common 16:9 resolutions
+- Implement proper scaling for UI
+- Handle resolution changes gracefully
+
+## Extension Points
+- Design for extensibility
+- Document extension points
+- Use interfaces for new features
+- Maintain backward compatibility
+
+## Documentation Standards
+- Use XML comments for public APIs
+- Document complex algorithms
+- Keep comments up to date
+- Include usage examples
+- Document dependencies
+
+## Review Process
+- Review code against these rules
+- Validate GDD updates
+- Check for architectural violations
+- Ensure proper testing
+- Verify documentation updates 

@@ -1,0 +1,97 @@
+{
+    "levelName": "NewLevel",
+    "startPoint": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "endPoint": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "objects": [
+        {
+            "type": "",
+            "position": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "rotation": 0.0
+        },
+        {
+            "type": "",
+            "position": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "rotation": 0.0
+        },
+        {
+            "type": "",
+            "position": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "rotation": 0.0
+        },
+        {
+            "type": "",
+            "position": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "rotation": 0.0
+        },
+        {
+            "type": "",
+            "position": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "rotation": 0.0
+        },
+        {
+            "type": "Unknown",
+            "position": {
+                "x": -4.079999923706055,
+                "y": 5.710000038146973
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "rotation": 0.0
+        },
+        {
+            "type": "Unknown",
+            "position": {
+                "x": -8.09000015258789,
+                "y": 9.869999885559082
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "rotation": 0.0
+        }
+    ]
+}

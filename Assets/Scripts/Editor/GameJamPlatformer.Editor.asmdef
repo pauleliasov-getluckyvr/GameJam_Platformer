@@ -1,0 +1,18 @@
+{
+    "name": "GameJamPlatformer.Editor",
+    "rootNamespace": "GameJamPlatformer",
+    "references": [
+        "GameJamPlatformer"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+} 
