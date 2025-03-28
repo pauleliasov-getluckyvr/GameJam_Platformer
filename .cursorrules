@@ -1,0 +1,74 @@
+// C# and Unity Development Rules
+
+// Follow C# best practices and SOLID principles:
+- Use PascalCase for class names, methods, and properties
+- Use camelCase for variables and parameters
+- Use _camelCase for private fields
+- Keep classes focused (Single Responsibility Principle)
+- Maximum method length: 20 lines
+- Maximum parameter count: 4
+- Document public APIs with XML comments
+- Use async/await for I/O operations
+- Implement IDisposable for managing resources
+- Write unit tests for public methods
+
+// Unity-specific guidelines:
+- Cache component references in Start/Awake
+- Use [SerializeField] instead of public fields
+- Keep MonoBehaviour scripts focused on single responsibility
+- Use ScriptableObjects for configuration data
+- Implement proper cleanup in OnDisable/OnDestroy
+- Use object pooling for frequently spawned objects
+- Minimize GetComponent calls
+- Use events for loose coupling between components
+- Keep Update methods lightweight
+- Implement proper scene management
+
+// Project structure:
+- Organize assets in folders: Scripts/, Prefabs/, Scenes/, etc.
+- Use prefabs for reusable game objects
+- Keep scene files in Scenes/ folder
+- Place editor scripts in Editor/ folder
+- Use Resources/ folder sparingly
+
+// Code organization:
+- One script per file
+- Group related components together
+- Use namespaces to organize code
+- Implement interfaces for common behaviors
+- Use dependency injection where possible
+
+// Performance guidelines:
+- Profile code regularly
+- Use coroutines for time-based operations
+- Implement object pooling for frequent instantiation
+- Cache component references
+- Avoid expensive operations in Update
+
+// Testing and debugging:
+- Write unit tests using Unity Test Framework
+- Use Debug.Log sparingly and meaningfully
+- Implement proper error handling
+- Create test scenes for component testing
+- Use mock objects for dependencies
+
+// UI and Input:
+- Use the new Input System
+- Keep UI logic separate from game logic
+- Implement proper UI scaling
+- Use UI events instead of direct references
+- Handle both keyboard and gamepad inputs
+
+// Version control:
+- Use proper .gitignore for Unity
+- Keep scene files in text format
+- Handle meta files correctly
+- Make atomic commits
+- Write meaningful commit messages
+
+// Build and deployment:
+- Configure proper build settings
+- Set appropriate quality settings
+- Handle platform-specific code properly
+- Keep build size optimized
+- Use preprocessor directives when needed 
